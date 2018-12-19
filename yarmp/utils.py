@@ -7,7 +7,7 @@ from .config import Config
 
 def fx(sound):
   with open(os.devnull, 'w') as dn:
-    sub.Popen(["mpg123","-a","default","-q","{!s}/fx/{!s}.mp3".format(Config.base_dir,sound)],stdout=dn,stderr=dn)
+    sub.Popen(["mpg123","--no-control","-a","default","-q","{!s}/fx/{!s}.mp3".format(Config.base_dir,sound)],stdout=dn,stderr=dn)
 
 def playlist_options():
   try:
