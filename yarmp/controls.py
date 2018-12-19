@@ -118,7 +118,7 @@ class Track(Control,States):
     mpd.sendmessage("ympd","RFID_OPTIONS:"+json.dumps({"rfid":e.value,"name":name,"options":playlist_options}))
     current_playlist = self.last_playlists.newest_key()
     log.debug("Track: current Playlist {!r}".format(current_playlist))
-    if current_playlist:
+    if current_playlist and playlist:
       self.last_playlists[current_playlist] = self.track_state
       if not self.last_playlists.is_newest(playlist):
         if playlist in self.last_playlists and \
